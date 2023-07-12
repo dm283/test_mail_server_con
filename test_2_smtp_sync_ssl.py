@@ -25,6 +25,8 @@ Subject: {msg_subject}
 
 # Create a secure SSL context
 context = ssl.create_default_context()
+# context = ssl.SSLContext(ssl.PROTOCOL_TLSv1_2); context.set_ciphers('DEFAULT@SECLEVEL=1')  # *** var 2 *** - e.g. gujon server (deprecated server)  -  appropriate for yandex too!
+
 
 print('CONNECTION TO SMTP SERVER...')  #
 with smtplib.SMTP_SSL(HOST, PORT, context=context) as server:
