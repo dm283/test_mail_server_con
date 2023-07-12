@@ -22,10 +22,12 @@ Subject: {msg_subject}
 {msg_text}
 """
 
+# THIS WORK FOR YA NOT FOR GU !!!
 
 # Create a secure SSL context
 context = ssl.create_default_context()
-# context = ssl.SSLContext(ssl.PROTOCOL_TLSv1_2); context.set_ciphers('DEFAULT@SECLEVEL=1')  # *** var 2 *** - e.g. gujon server (deprecated server)  -  appropriate for yandex too!
+# context = ssl.SSLContext(ssl.PROTOCOL_TLSv1_2)
+# context.set_ciphers('DEFAULT@SECLEVEL=1')
 
 
 # Try to log in to server and send email
@@ -37,9 +39,10 @@ try:
     server.ehlo() # Can be omitted
     server.login(MY_ADDRESS, PASSWORD)
     print('OK  -  CONNECTED')  #
-    print('SENDING A MESSAGE...')  #
-    server.sendmail(MY_ADDRESS, RECEIVER, message)
-    print('OK  -  SENT')  #
+
+    # print('SENDING A MESSAGE...')  #
+    # server.sendmail(MY_ADDRESS, RECEIVER, message)
+    # print('OK  -  SENT')  #
 except Exception as e:
     # Print any error messages to stdout
     print(e)
