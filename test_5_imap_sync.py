@@ -18,17 +18,19 @@ def test_imap_server():
     context = ssl.SSLContext()
     # context = ssl.SSLContext(ssl.PROTOCOL_TLSv1_2)  # для сервера СВХ, для Yandex не нужно
     # context.set_ciphers('DEFAULT@SECLEVEL=1')       # для сервера СВХ, для Yandex не нужно
+    print('imap server connect...', end=' ')
     imap = imaplib.IMAP4_SSL(
         host=HOST_IMAP, 
         port=PORT_IMAP,
-        ssl_context=context
+        ssl_context=context,
         )
+    print('OK')
     
     print(type(imap))  # class 'imaplib.IMAP4_SSL'
 
-    print('starttls...', end=' ')
-    imap.starttls()
-    print('OK')
+    # print('starttls...', end=' ')
+    # imap.starttls()
+    # print('OK')
 
     
     print('login...', end=' ')
