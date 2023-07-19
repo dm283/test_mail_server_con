@@ -15,12 +15,15 @@ def test_pop3_server():
     print('CONNECTION TO POP3 SERVER...')  #
     print(MY_ADDRESS, PASSWORD, HOST_POP3, PORT_POP3)
 
+    context = ssl.SSLContext()
+    # context = ssl.SSLContext(ssl.PROTOCOL_TLSv1_2)  # для сервера СВХ, для Yandex не нужно
+    # context.set_ciphers('DEFAULT@SECLEVEL=1')       # для сервера СВХ, для Yandex не нужно
     # connect to server
     print('pop3 server connect...', end=' ')
     server = poplib.POP3_SSL(
         host=HOST_POP3, 
         port=PORT_POP3,
-        context=None,
+        context=context,  # None (default)
         )
     print('OK', server)
 
