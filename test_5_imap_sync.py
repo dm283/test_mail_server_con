@@ -16,6 +16,8 @@ def test_imap_server():
     print(MY_ADDRESS, PASSWORD, HOST_IMAP, PORT_IMAP)
 
     context = ssl.SSLContext()
+    # context = ssl.SSLContext(ssl.PROTOCOL_TLSv1_2)  # для сервера СВХ, для Yandex не нужно
+    # context.set_ciphers('DEFAULT@SECLEVEL=1')       # для сервера СВХ, для Yandex не нужно
     imap = imaplib.IMAP4_SSL(
         host=HOST_IMAP, 
         port=PORT_IMAP,
