@@ -27,6 +27,9 @@ def test_pop3_server():
         )
     print('OK', server)
 
+    # Start a TLS session on the active connection
+    # server.stls()
+
     # login
     print('send user...', end=' ')
     server_response = server.user(MY_ADDRESS)
